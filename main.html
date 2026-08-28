@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Felipa&display=swap');
+
+        :root {
+            --dark-brown:   #603916;
+            --light-brown:  #A66326;
+            --dark-green:   #283618;
+            --light-green:  #606C38;
+            --cream:        #FEFAE0;
+
+            --tarot-card-height: 500px;
+            
+        }
+
+        /* Remove White Border */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: "Felipa", serif;
+        }
+
+        /* Containers */
+        .header-container {
+            width: 100%;
+            height: 10vh;
+            background-color: var(--light-green);
+            color: var(--cream);
+            align-content: center;
+            text-align: center;
+            font-size: 30px;
+            vertical-align: middle;
+            border-bottom: 5px solid var(--dark-green);
+        }
+
+        .body-container {
+            width: 100%;
+            height: 80vh;
+            background-color: var(--cream);
+            display: flex;
+        }
+
+        .footer-container {
+            width: 100%;
+            height: 10vh;
+            background-color: var(--light-green);
+            color: var(--cream);
+            align-content: center;
+            text-align: center;
+            font-size: 30px;
+            vertical-align: middle;
+            border-top: 5px solid var(--dark-green);
+        }
+
+        /* Body Contents */
+        .tarot-card {
+            padding-top: 20px;
+            padding-left: 50px;
+            display: flex;
+        }
+
+        .month-content {
+            padding-top: 20px;
+            padding-left: 50px;
+            padding-right: 50px;
+            color: var(--dark-green);
+            flex-grow: 1; 
+        }
+
+        .month-title {
+            font-size: 60px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        .month-body {
+            font-size: 30px;
+            white-space: pre-line;
+            text-align: left;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="header-container">･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･ ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</header>
+
+    <audio autoplay>
+        <source src="audio/the-last-unicorn.mp3">
+    </audio>
+
+    <div class="body-container">
+        <div class="tarot-card">
+            <img src="tarot-cards/major-arcana/Strength.webp" height="500px">
+        </div>
+        <div class="month-content">
+            <div class="month-title">August 2026 - Strength</div>
+            <div class="month-body">
+                ❀ Meaning - Strength, Courage, Compassion 
+
+                ❀ Retrogrades - Pluto (Transformation), Neptune (Spirituality), Saturn (Disipline & Habits), Chiron (Inner Reflection)
+                
+                ❀ Interpretation - ... 
+
+                ❀ Affirmation - I treat myself with the same compassion I give to others
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container">･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･ ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</footer>
+</body>
+</html>
