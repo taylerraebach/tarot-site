@@ -55,6 +55,7 @@
             font-size: 30px;
             vertical-align: middle;
             border-top: 5px solid var(--dark-green);
+            font-family: "Felipa", serif;
         }
 
         /* Body Contents */
@@ -84,14 +85,22 @@
             text-align: left;
         }
 
+        /* Audio Button */
+        .audio-btn {
+            font-size: 50px;
+            color: var(--dark-green);
+            background-color: transparent;
+            border: none;
+        } 
+
 
     </style>
 </head>
 <body>
     <header class="header-container">･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･ ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</header>
 
-    <audio autoplay>
-        <source src="audio/the-last-unicorn.mp3">
+    <audio id="audioFile" loop>
+        <source src="audio/the-last-unicorn.mp3" type="audio/mpeg">
     </audio>
 
     <div class="body-container">
@@ -112,6 +121,21 @@
         </div>
     </div>
 
-    <footer class="footer-container">･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･ ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</footer>
+    <footer class="footer-container">
+        :*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･
+        <button class="audio-btn" onclick="toggleSound()">❀</button>
+        ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</footer>
 </body>
+<script>
+
+    // inits
+    let _music = false;
+    const song = document.getElementById("audioFile");
+
+    // toggle music playing
+    function toggleSound() {
+        if (_music) { song.pause(); _music = false; }
+        else { song.play(); _music = true; }
+    }
+</script>
 </html>
