@@ -24,6 +24,9 @@
             padding: 0;
             font-family: "Felipa", serif;
         }
+        select {
+            appearance: base-select;
+        }
 
         /* Containers */
         .header-container {
@@ -88,16 +91,46 @@
         /* Audio Button */
         .audio-btn {
             font-size: 50px;
-            color: var(--dark-green);
+            color: var(--cream);
             background-color: transparent;
             border: none;
+            vertical-align: middle;
         } 
+
+        /* Dropdown */
+        .dropdown-container {
+            appearance: none;
+            -webkit-appearance: none;
+            font-size: 50px;
+            color: var(--cream);
+            background-color: transparent;
+            border: none;
+            width: 40px;
+            height: 50px;
+            align-content: center;
+        }
+        .dropdown-item {
+            appearance: none;
+            -webkit-appearance: none;
+            font-size: 30px;
+            color: var(--cream);
+            background-color: var(--dark-green);
+            border: none;
+        }
 
 
     </style>
 </head>
 <body>
-    <header class="header-container">･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･ ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</header>
+    <header class="header-container">
+        ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･
+        <select class="dropdown-container">
+            <option class="dropdown-item" value="" selected>❀</option>
+            <option class="dropdown-item" value="8/26">August 2026</option>
+            <option class="dropdown-item" value="8/26">July 2026</option>
+        </select>
+        ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･
+    </header>
 
     <audio id="audioFile" loop>
         <source src="audio/the-last-unicorn.mp3" type="audio/mpeg">
@@ -105,11 +138,11 @@
 
     <div class="body-container">
         <div class="tarot-card">
-            <img src="tarot-cards/major-arcana/Strength.webp" height="500px">
+            <img id="tarot_card_spot" height="500px">
         </div>
         <div class="month-content">
             <div class="month-title">August 2026 - Strength</div>
-            <div class="month-body">
+            <div class="month-body" id="month_body">
                 ❀ Meaning - Strength, Courage, Compassion 
 
                 ❀ Retrogrades - Pluto (Transformation), Neptune (Spirituality), Saturn (Disipline & Habits), Chiron (Inner Reflection)
@@ -126,16 +159,55 @@
         <button class="audio-btn" onclick="toggleSound()">❀</button>
         ･:*ೃ࿔.⋆❀° ·𐡸· ·༺ ··𐫱·· ༻· ·𐡷· °❀⋆.ೃ࿔*:･</footer>
 </body>
+
+<script src="https://cloudflare.com"></script>
 <script>
 
     // inits
     let _music = false;
+    let _today = new Date(Date.now());
+    let _month = _today.getMonth() + 1;
+    let _year = _today.getFullYear();
+    let _csv = '';
     const song = document.getElementById("audioFile");
+
+    // --- Init Func --------------------------------------
+    async function init() {
+        // update page with current info
+        const file = fetch('text-content.csv');
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const content = e.target.result;
+                document.getElementById('output').innerText = content;
+            };
+            reader.readAsText(file);
+        }
+
+
+        const csv = 'text-content.csv';
+        const csvData = await csv.text();
+        const csvRows = csvData.split('\n').map(row => row.split(','));
+        _csv = csvRows;
+        //document.getElementById('tarot-card-slot').src=
+    }
+
+    // determine current month/year
+    function monthYear() {
+        
+    }
 
     // toggle music playing
     function toggleSound() {
         if (_music) { song.pause(); _music = false; }
         else { song.play(); _music = true; }
+
+        const today = new Date(Date.now());
+        document.getElementById('month_body').innerHTML = `${_csv}`;
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+    });
 </script>
 </html>
